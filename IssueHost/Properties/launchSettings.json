@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Kestrel": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "scalar/v1",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_Kestrel__Certificates__Default__Password": "somepassword"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:8304;http://localhost:8305"
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json"
+}
