@@ -30,7 +30,9 @@ public class TestLibSetup
                 client.Timeout = new TimeSpan(0, 5, 0);
                 var requestAdapter = new HttpClientRequestAdapter(new AnonymousAuthenticationProvider(), null, null, client) { BaseUrl = "https://localhost:8304" };
                 return new IssueTestClient(requestAdapter);
-            }).AddResilienceHandler("custom-pipeline", builder =>
+            })
+                .AddHttpMessageHandler(() => new DowngrageHttpVersionHandler())
+                .AddResilienceHandler("custom-pipeline", builder =>
             {
                 builder.AddRetry(new CustomRetryStrategyOptions());
             });

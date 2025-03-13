@@ -19,6 +19,7 @@ public class HttpTestClient(HttpClient client) : IHttpTestClient
         var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:8304/api/test/error");
         var content = new { token = "test" };
         request.Content = new StringContent(JsonSerializer.Serialize(content), Encoding.UTF8, "application/json");
+        //request.Version = new Version(2, 0);
         return await Client.SendAsync(request);
     }
     
